@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    srand(time(0));
+
+    int opcion = 0;
+    while (opcion != 5)
+      {
+        printf("1. Suma\n");
+        printf("2. Resta\n");
+        printf("3. Multiplicacion\n");
+        printf("4. Division\n");
+        printf("5. Terminar el programa\n");
+        printf("Ingrese una opcion: ");
+        scanf("%d", &opcion);
+
+        if (opcion >= 1 && opcion <= 4)
+            {
+            int num1 = rand() % 10;
+            int num2 = rand() % 10;
+            float resultado;
+
+            switch (opcion)
+                  {
+                case 1:
+                    resultado = num1 + num2;
+                    printf("La suma de %d y %d es: %.2f\n", num1, num2, resultado);
+                    break;
+                case 2:
+                    resultado = num1 - num2;
+                    printf("La resta de %d y %d es: %.2f\n", num1, num2, resultado);
+                    break;
+                case 3:
+                    resultado = num1 * num2;
+                    printf("La multiplicación de %d y %d es: %.2f\n", num1, num2, resultado);
+                    break;
+                case 4:
+                    if (num2 != 0)
+                              {
+                        resultado = (float) num1 / num2;
+                        printf("La división de %d entre %d es: %.2f\n", num1, num2, resultado);
+                    } else
+                              {
+                        printf("No se puede dividir entre cero\n");
+                    }
+                    break;
+            }
+        } else if (opcion == 5)
+            {
+            printf("Programa terminado.\n");
+        }
+    }
+
+    return 0;
+}
